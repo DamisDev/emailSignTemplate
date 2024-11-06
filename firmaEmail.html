@@ -1,69 +1,109 @@
-<style>
-  .text-gradient {
-  /* Set the background color */
-  background: linear-gradient(to right, #000000 0%,  #dd1b24 65%); 
-  /* Mask the color to the text, and remove the rest  */
-  -webkit-background-clip: text;
-  margin-bottom: 5px;
-  /* Make the text fill color value transparent so the masked background color comes through */
-  -webkit-text-fill-color: transparent;
+
+<form id="formCompilation">
+ <p> 
+  nome: <input type="text" name="nome"  id="nome"></input>
+ </p>
+ <p> 
+  cognome: <input type="text" id="cognome"></input>
+ </p>
+ <p> 
+  tel: <input type="text" id="tel"></input>
+ </p>
+ <p> 
+  Ruolo: <input type="text" id="ruolo"></input>
+ </p>
+ <p> 
+  email: <input type="text" id="email"></input>
+ </p>
+ <br>
+ <a onclick="compila()" style="background-color: green; border-radius: 4px; padding: 5px; color: #ffffff;">Compila</a>
+</form>
+<script>
+  function compila() {
+
+    debugger;
+    const nome = document.getElementById('nome');
+
+  const cognome = document.getElementById('cognome');
+const nomeCognome = nome.value + ' ' + cognome.value;
+  const titoloEmail = document.getElementById('titoloEmail');
+  titoloEmail.innerText = nomeCognome;
+  const email = document.getElementById('email').value;
+  
+  document.getElementById('emailEmail').innerText =  email;
+  
+  document.getElementById('emailEmail').setAttribute('href', 'mailto:'+ email);
+  
+  const ruolo = document.getElementById('ruolo').value;
+  
+  document.getElementById('ruoloEmail').innerText =  ruolo;
+  
+  const tel = document.getElementById('tel').value;
+  if(!tel || tel.trim() == ''){
+   document.getElementById('telPara').remove();
+  } else {
+     document.getElementById('telEmail').innerText =  tel;
+  }
 }
-</style>
-<table style="font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; color: #2d2d2d; border-collapse: separate; border-spacing: 0; max-width: 100%; background: #ffffff;">
+</script>
+<br>
+<br>
+<br>
+<br>
+<table style="font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; color: #2d2d2d; border-collapse: separate; border-spacing: 0; max-width: 100%; background: #ffffff;">
   <tr>
-      <td style="padding: 12px; border-left: 4px solid; border-image: linear-gradient(to top, #dd1b24, #000) 0.9 75%;">
+      <td style="padding: 10px; border-left: 2px solid #dd1b24;">
           <table style="border-collapse: collapse;">
               <tr>
                   <!-- LOGO -->
-                  <td style="padding: 0 20px; border-right: 1px solid #e0e0e0;">
-                      <img src="https://www.digiservice-solutions.it/images/logo_new.svg" alt="Logo Aziendale" style="width: 209px; height: auto; display: block;">
+                  <td style="padding: 0 15px; border-right: 1px solid #e0e0e0;">
+                      <img src="https://www.digiservice-solutions.it/images/logo_new.svg" alt="Logo Aziendale" style="width: 180px; height: auto; display: block;">
                   </td>
-                  <td style="padding-left: 20px;">
+                  <td style="padding-left: 15px;">
                       <!-- NAME AND SURNAME -->
-                      <h2 class="text-gradient">Giuseppe Damis</h2>
+                      <h2 style="margin: 0 0 2px 0; font-size: 16px; color: #2d2d2d;" id="titoloEmail">Giuseppe Damis</h2>
 
                       <!-- JOB TYPE -->
-                      <p style="margin: 2px 0 5px 0; font-size: 13px; color: #666666;">Software Developer</p>
+                      <p style="margin: 0 0 5px 0; font-size: 12px; color: #666666;" id="ruoloEmail">Software Developer</p>
 
                       <!-- COMPANY NAME -->
                       <p style="margin: 0 0 5px 0;">Digiservice s.r.l.s.</p>
                       
                       <!-- GENERAL INFO - START -->
-                      <div style="margin: 8px 0;">
-                          <p style="margin: 5px 0; display: flex; align-items: center; font-size: 14px;">
-                              <img src="https://www.digiservice-solutions.it/images/phone3.svg" alt="Telefono:" style="width: 14px; height: 14px; margin-right: 5px;">
-                              <span style="color: #444444;">+39 340 878 4180</span>
+                      <div style="margin: 6px 0;">
+                          <p style="margin: 4px 0; display: flex; align-items: center; font-size: 13px;" id="telPara">
+                              <img src="https://www.digiservice-solutions.it/images/phone3.svg" alt="Telefono:" style="width: 12px; height: 12px; margin-right: 5px;">
+                              <span style="color: #444444;" id="telEmail">+39 340 878 4180</span>
                           </p>
-                          <p style="margin: 5px 0; display: flex; align-items: center; font-size: 14px;">
-                              <img src="https://www.digiservice-solutions.it/images/email3.svg" alt="E-mail:" style="width: 14px; height: 14px; margin-right: 5px;">
-                              <a href="mailto:giuseppe.damis@digiservice-solutions.it" style="color: #0066cc; text-decoration: none;">giuseppe.damis@digiservice-solutions.it</a>
+                          <p style="margin: 4px 0; display: flex; align-items: center; font-size: 13px;">
+                              <img src="https://www.digiservice-solutions.it/images/email3.svg" alt="E-mail:" style="width: 12px; height: 12px; margin-right: 5px;">
+                              <a href="mailto:giuseppe.damis@digiservice-solutions.it" style="color: #0066cc; text-decoration: none;" id="emailEmail">giuseppe.damis@digiservice-solutions.it</a>
                           </p>
-                          <p style="margin: 5px 0; display: flex; align-items: center; font-size: 14px;">
-                              <img src="https://www.digiservice-solutions.it/images/location3.svg" alt="Posizione:" style="width: 14px; height: 14px; margin-right: 5px;">
-                              <a href="https://www.google.com/maps/place/Digiservice+S.R.L.S/@39.3446845,16.201069,17z/data=!3m1!4b1!4m6!3m5!1s0x133f9973b9c1717b:0xcac0eb50b8dfe9e4!8m2!3d39.3446804!4d16.2036439!16s%2Fg%2F11w29cyx9q?entry=ttu&g_ep=EgoyMDI0MTAyMy4wIKXMDSoASAFQAw%3D%3D
-                                " style="color: #0066cc; text-decoration: none;">Via Spagna, 2 Contrada Cutura, 87036, Rende (CS)</a>
+                          <p style="margin: 4px 0; display: flex; align-items: center; font-size: 13px;">
+                              <img src="https://www.digiservice-solutions.it/images/location3.svg" alt="Posizione:" style="width: 12px; height: 12px; margin-right: 5px;">
+                              <a href="https://www.google.com/maps/place/Digiservice+S.R.L.S/@39.3446845,16.201069,17z/data=!3m1!4b1!4m6!3m5!1s0x133f9973b9c1717b:0xcac0eb50b8dfe9e4!8m2!3d39.3446804!4d16.2036439!16s%2Fg%2F11w29cyx9q?entry=ttu&g_ep=EgoyMDI0MTAyMy4wIKXMDSoASAFQAw%3D%3D" style="color: #0066cc; text-decoration: none;">Via Spagna, 2 Contrada Cutura, 87036, Rende (CS)</a>
                           </p>
-                          <p style="margin: 5px 0; display: flex; align-items: center; font-size: 14px;">
-                            <img src="https://www.digiservice-solutions.it/images/sito.svg" alt="Posizione:" style="width: 14px; height: 14px; margin-right: 5px;">
+                          <p style="margin: 4px 0; display: flex; align-items: center; font-size: 13px;">
+                            <img src="https://www.digiservice-solutions.it/images/sito.svg" alt="Posizione:" style="width: 12px; height: 12px; margin-right: 5px;">
                             <a href="https://www.digiservice-solutions.it" style="display: inline-block; color: #0066cc; text-decoration: none;">www.digiservice-solutions.it</a>    
                           </p>
                           <!-- SOCIAL SECTION - START -->
-                          <div style="margin: 5px 0; display: flex;">
-                            <p style="margin: 5px 0; display: flex;">
+                          <div style="margin: 4px 0; display: flex;">
+                            <span style="margin: 4px 0; display: flex;">
                               <a href="https://www.facebook.com/digiserviceitalia/about/">
-                                <img src="https://www.digiservice-solutions.it/images/facebook-13.svg" alt="Facebook" style="width: 24px; height: 24px; margin-right: 12px;">
+                                <img src="https://www.digiservice-solutions.it/images/facebook-13.svg" alt="Facebook" style="width: 22px; height: 22px; margin-right: 10px;">
                               </a>
-                            </p>
-                            <p style="margin: 5px 0; display: flex;">
+                            </span>
+                            <span style="margin: 4px 0; display: flex;">
                               <a href="https://www.instagram.com/digiserviceitalia/">
-                                <img src="https://www.digiservice-solutions.it/images/instagram-40.svg" alt="Instagram" style="width: 24px; height: 24px; margin-right: 12px;">
+                                <img src="https://www.digiservice-solutions.it/images/instagram-40.svg" alt="Instagram" style="width: 22px; height: 22px; margin-right: 10px;">
                               </a>
-                            </p>
-                            <p style="margin: 5px 0; display: flex;">
+                            </span>
+                            <span style="margin: 4px 0; display: flex;">
                               <a href="https://www.linkedin.com/company/digiserviceitalia/posts/?feedView=all">
-                                <img src="https://www.digiservice-solutions.it/images/linkedin-83.svg" alt="Linkedin" style="width: 24px; height: 24px; margin-right: 12px;">
+                                <img src="https://www.digiservice-solutions.it/images/linkedin-83.svg" alt="Linkedin" style="width: 22px; height: 22px; margin-right: 10px;">
                               </a>
-                            </p>
+                            </span>
                           </div>
                           <!-- SOCIAL SECTION - END -->
                       </div>
@@ -72,15 +112,7 @@
               </tr>
           </table>
           <!-- PRIVACY SECTION - START -->
-          <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e0e0e0;">
-              <div style="font-size: 11px; color: #666666; line-height: 1.4;">
-                  <p style="margin: 0 0 8px 0; color: #444444; font-weight: 600;">AVVISO DI RISERVATEZZA</p>
-                  <p style="margin: 0 0 8px 0; text-align: justify;">Questa mail è inviata da o per conto della Digiservice Srls. Le informazioni trasmesse attraverso la presente mail ed i suoi allegati sono dirette esclusivamente al destinatario e devono ritenersi riservate con divieto di diffusione e comunicazione a terzi non autorizzati. La diffusione e la comunicazione da parte di soggetto diverso dal destinatario è vietata dall'art. 616 e ss. c.p. e dalle vigenti norme in materia di protezione dei dati personali. Se la presente mail ed i suoi allegati fossero ricevuti per errore da persona diversa dal destinatario, si prega di distruggere tutto quanto ricevuto e di informare il mittente con lo stesso mezzo.</p>
-                  
-                  <p style="margin: 8px 0 4px 0; color: #444444; font-weight: 600;">INFORMATIVA SUL TRATTAMENTO DEI DATI PERSONALI</p>
-                  <p style="margin: 0; text-align: justify;">(art. 13 Regolamento UE 679/2016). Il suo indirizzo di posta elettronica è utilizzato dalla Digiservice Srls esclusivamente per finalità di comunicazione diretta in quanto lei è cliente o fornitore, ovvero per rispondere ad una sua richiesta. Nel caso in cui voglia rimuovere il suo indirizzo di posta elettronica dal nostro archivio, ovvero per l'esercizio dei diritti previsti dagli articoli da 15 a 22 del Regolamento UE 2016/679, può inviare una comunicazione a <a href="mailto:privacy@digiservice-solutions.it" style="color: #0066cc; text-decoration: none;">privacy@digiservice-solutions.it</a>. Per conoscere le informazioni complete sul trattamento dei dati personali, può prendere visione dell'informativa completa al link <a href="https://www.digiservice-solutions.it/" style="color: #0066cc; text-decoration: none;">www.digiservice-solutions.it</a></p>
-              </div>
-          </div>
+          <div style="margin-top: 6px; padding-top: 6px; border-top: 1px solid #e0e0e0; font-size: 9px; color: #666666; line-height: 1.3;"><strong>AVVISO DI RISERVATEZZA:</strong> Questa mail è inviata da o per conto della Digiservice Srls. Le informazioni trasmesse attraverso la presente mail ed i suoi allegati sono dirette esclusivamente al destinatario e devono ritenersi riservate con divieto di diffusione e comunicazione a terzi non autorizzati. La diffusione e la comunicazione da parte di soggetto diverso dal destinatario è vietata dall'art. 616 e ss. c.p. e dalle vigenti norme in materia di protezione dei dati personali. Se la presente mail ed i suoi allegati fossero ricevuti per errore da persona diversa dal destinatario, si prega di distruggere tutto quanto ricevuto e di informare il mittente con lo stesso mezzo. <br><strong>SUL TRATTAMENTO DEI DATI PERSONALI:</strong> (art. 13 Regolamento UE 679/2016). Il suo indirizzo di posta elettronica è utilizzato dalla Digiservice Srls esclusivamente per finalità di comunicazione diretta in quanto lei è cliente o fornitore, ovvero per rispondere ad una sua richiesta. Nel caso in cui voglia rimuovere il suo indirizzo di posta elettronica dal nostro archivio, ovvero per l'esercizio dei diritti previsti dagli articoli da 15 a 22 del Regolamento UE 2016/679, può inviare una comunicazione a privacy@digiservice-solutions.it. Per conoscere le informazioni complete sul trattamento dei dati personali, può prendere visione dell'informativa completa al link www.digiservice-solutions.it</div>
           <!-- PRIVACY SECTION - END -->
       </td>
   </tr>
