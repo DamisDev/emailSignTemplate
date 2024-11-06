@@ -1,50 +1,144 @@
+<style>
+  #formCompilation {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  #formCompilation span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333333;
+  }
+
+  #formCompilation p {
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  #formCompilation label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+    color: #444444;
+  }
+
+  #formCompilation input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #555555;
+  }
+
+  #formCompilation .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  #formCompilation .buttons a {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 12px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    flex: 1;
+    margin: 0 5px;
+  }
+
+  #formCompilation .buttons a.cancel {
+    background-color: #FF6B6B;
+  }
+
+  #formCompilation .buttons a:hover {
+    background-color: #45a049;
+  }
+
+  #formCompilation .buttons a.cancel:hover {
+    background-color: #E53935;
+  }
+</style>
 
 <form id="formCompilation">
- <p> 
-  nome: <input type="text" name="nome"  id="nome"></input>
- </p>
- <p> 
-  cognome: <input type="text" id="cognome"></input>
- </p>
- <p> 
-  tel: <input type="text" id="tel"></input>
- </p>
- <p> 
-  Ruolo: <input type="text" id="ruolo"></input>
- </p>
- <p> 
-  email: <input type="text" id="email"></input>
- </p>
- <br>
- <a onclick="compila()" style="background-color: green; border-radius: 4px; padding: 5px; color: #ffffff;">Compila</a>
+  <span>Inserisci qui i tuoi dati</span>
+  <p>
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome">
+  </p>
+  <p>
+    <label for="cognome">Cognome:</label>
+    <input type="text" id="cognome">
+  </p>
+  <p>
+    <label for="tel">Telefono:</label>
+    <input type="text" id="tel">
+  </p>
+  <p>
+    <label for="ruolo">Ruolo:</label>
+    <input type="text" id="ruolo">
+  </p>
+  <p>
+    <label for="email">E-mail:</label>
+    <input type="text" id="email">
+  </p>
+  <div class="buttons">
+    <a class="cancel" onclick="resetForm()">Annulla</a>
+    <a onclick="compila()">Compila</a>
+  </div>
 </form>
+
+<script>
+  function resetForm() {
+    document.getElementById("nome").value = "";
+    document.getElementById("cognome").value = "";
+    document.getElementById("tel").value = "";
+    document.getElementById("ruolo").value = "";
+    document.getElementById("email").value = "";
+  }
+</script>
 <script>
   function compila() {
-
-    debugger;
     const nome = document.getElementById('nome');
+    const cognome = document.getElementById('cognome');
+    const nomeCognome = nome.value + ' ' + cognome.value;
+    const titoloEmail = document.getElementById('titoloEmail');
 
-  const cognome = document.getElementById('cognome');
-const nomeCognome = nome.value + ' ' + cognome.value;
-  const titoloEmail = document.getElementById('titoloEmail');
-  titoloEmail.innerText = nomeCognome;
-  const email = document.getElementById('email').value;
+    titoloEmail.innerText = nomeCognome;
+    const email = document.getElementById('email').value;
   
-  document.getElementById('emailEmail').innerText =  email;
+    document.getElementById('emailEmail').innerText =  email;
   
-  document.getElementById('emailEmail').setAttribute('href', 'mailto:'+ email);
+    document.getElementById('emailEmail').setAttribute('href', 'mailto:'+ email);
   
-  const ruolo = document.getElementById('ruolo').value;
+    const ruolo = document.getElementById('ruolo').value;
   
-  document.getElementById('ruoloEmail').innerText =  ruolo;
+    document.getElementById('ruoloEmail').innerText =  ruolo;
   
-  const tel = document.getElementById('tel').value;
-  if(!tel || tel.trim() == ''){
-   document.getElementById('telPara').remove();
-  } else {
+    const tel = document.getElementById('tel').value;
+
+    if(!tel || tel.trim() == '') {
+      document.getElementById('telPara').remove();
+    } 
+    else {
      document.getElementById('telEmail').innerText =  tel;
+    }
   }
-}
 </script>
 <br>
 <br>
