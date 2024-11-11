@@ -79,11 +79,11 @@
 <form id="formCompilation">
   <span>Inserisci qui i tuoi dati</span>
   <p>
-    <label for="nome">Nome:</label>
+    <label for="nome">Nome:**</label>
     <input type="text" name="nome" id="nome">
   </p>
   <p>
-    <label for="cognome">Cognome:</label>
+    <label for="cognome">Cognome:**</label>
     <input type="text" id="cognome">
   </p>
   <p>
@@ -91,11 +91,11 @@
     <input type="text" id="tel">
   </p>
   <p>
-    <label for="ruolo">Ruolo:</label>
+    <label for="ruolo">Ruolo:*</label>
     <input type="text" id="ruolo">
   </p>
   <p>
-    <label for="email">E-mail:</label>
+    <label for="email">E-mail:**</label>
     <input type="text" id="email">
   </p>
   <div class="buttons">
@@ -103,7 +103,7 @@
     <a onclick="compila()">Applica</a>
   </div>
   <br>
-  <span style="font-size: smaller; font-weight: 100;">*non obbligatorio</span>
+  <span style="font-size: smaller; font-weight: 100px; color: #e94644;">**obbligatorio</span> <span style="font-size: smaller; font-weight: 100px; color: green;">*non obbligatorio</span>
 </form>
 
 <script>
@@ -119,11 +119,16 @@
   function compila() {
     const nome = document.getElementById('nome');
     const cognome = document.getElementById('cognome');
-    const nomeCognome = nome.value + ' ' + cognome.value;
-    const titoloEmail = document.getElementById('titoloEmail');
+    const nomeEmail = document.getElementById('nomeEmail');
+    const cognomeEmail = document.getElementById('cognomeEmail');
     const jobType = document.getElementById('jobType');
 
-    titoloEmail.innerText = nomeCognome;
+    nomeEmail.innerText = nome.value;
+    if(cognome?.value && cognome?.value.trim() != '') {
+     cognomeEmail.innerText = cognome.value;
+    } else {
+      cognomeEmail.remove();
+    }
     const email = document.getElementById('email').value;
   
     document.getElementById('emailEmail').innerText = email;
@@ -150,7 +155,7 @@
      document.getElementById('emailEmail').innerText = email;
     }
 
-    if(!jobType ) {
+    if(!jobType) {
       document.getElementById('jobType').remove();
     }
     else {
@@ -175,7 +180,7 @@
           <td style="padding-left: 15px;">
             <!-- NAME AND SURNAME -->
             <h2 id="titoloEmail" style="margin: 0 0 2px 0; font-size: 16px; color: #2d2d2d; display: flex; align-items: center;">
-              Giuseppe Damis
+              <span id='nomeEmail'>Giuseppe</span> <span id='cognomeEmail' style="color: #dd1b24; padding-left: 6px;">DAMIS</span>
             </h2>
 
             <!-- JOB TYPE -->
@@ -184,22 +189,10 @@
             <!-- COMPANY NAME AND SOCIAL ICONS -->
             <div style="display: flex; align-items: center; margin: 0 0 5px 0;">
               <p style="margin: 0; vertical-align: middle; display: inline-block;">Digiservice s.r.l.s.</p>
-              <span style="margin: 0 10px; color: #666666; vertical-align: middle; display: inline-block;"> | </span>
-              <div style="display: inline-flex; align-items: center; vertical-align: middle;">
-                <a href="https://www.facebook.com/digiserviceitalia/about/" style="line-height: 0; display: inline-block; vertical-align: middle; margin-right: 8px;">
-                  <img src="https://www.digiservice-solutions.it/images/facebook-13.svg" alt="Facebook" style="width: 16px; height: 16px; display: block; vertical-align: middle;">
-                </a>
-                <a href="https://www.instagram.com/digiserviceitalia/" style="line-height: 0; display: inline-block; vertical-align: middle; margin-right: 8px;">
-                  <img src="https://www.digiservice-solutions.it/images/instagram-40.svg" alt="Instagram" style="width: 16px; height: 16px; display: block; vertical-align: middle;">
-                </a>
-                <a href="https://www.linkedin.com/company/digiserviceitalia/posts/?feedView=all" style="line-height: 0; display: inline-block; vertical-align: middle;">
-                  <img src="https://www.digiservice-solutions.it/images/linkedin-83.svg" alt="Linkedin" style="width: 16px; height: 16px; display: block; vertical-align: middle;">
-                </a>
-              </div>
             </div>
             
             <!-- GENERAL INFO - START -->
-            <div style="margin: 6px 0;">
+            <div style="margin-top: 6px;">
               <p id="telParam" style="margin: 4px 0; display: flex; align-items: center; font-size: 13px;">
                 <img src="https://www.digiservice-solutions.it/images/phone3.svg" alt="Telefono:" style="width: 12px; height: 12px; margin-right: 5px;">
                 <span id="telefono" style="color: #444444;">+39 340 878 4180</span>
@@ -218,6 +211,20 @@
               </p>
             </div>
             <!-- GENERAL INFO - END -->
+             <div>
+              <p style="color: #dd1b24; margin: 7px auto 6px auto;">Follow up on Social Media:</p>
+             </div>
+            <div style="display: inline-flex; align-items: center; vertical-align: middle;">
+              <a href="https://www.facebook.com/digiserviceitalia/about/" style="line-height: 0; display: inline-block; vertical-align: middle; margin-right: 8px;">
+                <img src="https://www.digiservice-solutions.it/images/facebook-13.svg" alt="Facebook" style="width: 16px; height: 16px; display: block; vertical-align: middle;">
+              </a>
+              <a href="https://www.instagram.com/digiserviceitalia/" style="line-height: 0; display: inline-block; vertical-align: middle; margin-right: 8px;">
+                <img src="https://www.digiservice-solutions.it/images/instagram-40.svg" alt="Instagram" style="width: 16px; height: 16px; display: block; vertical-align: middle;">
+              </a>
+              <a href="https://www.linkedin.com/company/digiserviceitalia/posts/?feedView=all" style="line-height: 0; display: inline-block; vertical-align: middle;">
+                <img src="https://www.digiservice-solutions.it/images/linkedin-83.svg" alt="Linkedin" style="width: 16px; height: 16px; display: block; vertical-align: middle;">
+              </a>
+            </div>
           </td>
         </tr>
       </table>
